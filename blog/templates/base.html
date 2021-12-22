@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="color-scheme" content="light dark">
+
+    <link rel="stylesheet" href="{% static 'css3p/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme-light.css' %}" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="{% static 'css/theme-dark.css' %}" media="(prefers-color-scheme: dark)">
+    {% block head-styles %}{% endblock %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Forum&family=Merriweather:ital,wght@0,300;0,400;1,400&family=Mukta:wght@200;300;400&family=Neuton&family=Noto+Serif&family=PT+Sans&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Raleway:wght@200;400;500&family=Roboto+Slab:wght@100;300;400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <link rel=icon href={% static 'img/favicon.png' %} sizes="16x16" type="image/png">
+
+    <title>{% block head-title %}{% endblock %}</title>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        {% block body-header %}
+            <h1><a href="{% url "root" %}">{{ author.first_name }} {{ author.last_name }}</a></h1>
+        {% endblock %}
+    </header>
+
+    <div class="container-wrapper">{% block body-container %}{% endblock %}</div>
+
+    <footer class="page-footer">
+        <p class="auth">
+            {% if user.is_authenticated %}
+                <a class="auth user-update" href="{% url "user-update" user.pk %}">Profile</a>
+                <a class="auth logout" href="{% url "logout" %}">Logout</a>
+            {% else %}
+                <a class="auth login" href="{% url "login" %}">Login</a>
+            {% endif %}
+        </p>
+        <p class="author">
+            &copy; {{ author.first_name }} {{ author.last_name }}.
+            <a href="mailto:{{ author.email }}?subject=Message from a blog follower">Email me.</a>
+        </p>
+        <p class="developer">
+            Developed by <a href="https://mvoronin.pro" target="_blank">Michael Voronin</a>
+        </p>
+    </footer>
+</div>
+{% block body-tail-default-js %}{% endblock %}
+{% block body-tail-page-js %}{% endblock %}
+</body>
+</html>

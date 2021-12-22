@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block head-title %}{{ author.first_name }} {{ author.last_name }}{% endblock %}
+
+{% block body-container %}
+    <main class="container post-detail">
+        <h1>{{ object.title }}</h1>
+        {% if perms.blog.change_post %}
+            <a href="{% url "post-update" object.category.slug object.pk %}">Edit</a>
+        {% endif %}
+        {% if perms.blog.delete_post %}
+            <a href="{% url "post-delete" object.category.slug object.pk %}">Delete</a>
+        {% endif %}
+        <div class="ctg-container">
+            {{ object.body|safe }}
+        </div>
+    </main>
+{% endblock %}

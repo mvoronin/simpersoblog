@@ -1,0 +1,26 @@
+[
+{
+    "model": "blog.category",
+    "pk": 1,
+    "fields": {
+        "name": "Poems",
+        "slug": "poems"
+    }
+},
+{
+    "model": "blog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Travel",
+        "slug": "travel"
+    }
+},
+{
+    "model": "blog.category",
+    "pk": 3,
+    "fields": {
+        "name": "Stories",
+        "slug": "stories"
+    }
+}
+]

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head-title %}{{ author.first_name }} {{ author.last_name }}{% endblock %}
+
+{% block body-container %}
+    <h1>{{ object.title }}</h1> <a href="{% url "post-update" object.category.slug object.pk %}">Edit</a>
+    <div class="ctg-container">
+
+    <form method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ object }}"?</p>
+        <input type="submit" value="Confirm">
+    </form>
+
+    </div>
+{% endblock %}

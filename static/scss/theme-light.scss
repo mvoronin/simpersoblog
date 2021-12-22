@@ -1,0 +1,41 @@
+@import 'style/colors';
+
+
+body {
+    background-color: $color2l1;
+    color: $color4d1;
+}
+
+a {
+    color: $color9;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+header {
+    background: linear-gradient($color1_op50, $color1_op50), url("/static/img/background3b_3840x200.webp");
+
+    h1 {
+        color: #ECD3BC;
+    }
+}
+
+.item.button a {
+    color: #544E61;
+}
+
+footer {
+    background: $color4d1;
+    color: $color2l1;
+
+    a {
+        color: $color1;
+    }
+}
+
+.item {
+    background-color: $color3;
+}

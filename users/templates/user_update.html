@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head-title %}{{ author.first_name }} {{ author.last_name }}{% endblock %}
+
+{% block body-container %}
+    <main class="container auth-user-update">
+        <form class="auth" method="post">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+                <th></th><td><button type="submit">Save</button></td>
+            </table>
+        </form>
+    </main>
+{% endblock %}

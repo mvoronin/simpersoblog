@@ -1,0 +1,109 @@
+.container.category-list {
+    display: grid;
+    grid-template-areas: "poems"
+                         "travelling"
+                         "stories";
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    h2 {
+        text-align: left;
+    }
+}
+
+.ctg-poems {
+    grid-area: poems;
+}
+.ctg-travelling {
+    grid-area: travelling;
+}
+.ctg-stories {
+    grid-area: stories;
+
+    .ctg-container {
+        grid-template-columns: 1fr;
+    }
+}
+.item.button {
+    grid-column: span 1;
+}
+
+@media (min-width: 576px) {
+    .container.category-list {
+        margin: 0 2rem;
+        grid-template-areas: "poems travelling"
+                             "stories stories";
+        grid-template-columns: 1fr 1fr;
+        gap: 1.4rem;
+    }
+    .ctg-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+    .ctg-stories .ctg-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container.category-list {
+        margin: 0 2rem;
+        grid-template-areas: "poems travelling"
+                             "stories stories";
+        grid-template-columns: 1fr 1fr;
+        gap: 1.4rem;
+    }
+    .ctg-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+    }
+    .ctg-poems      .ctg-container,
+    .ctg-travelling .ctg-container{
+        .item.button {
+            grid-column: span 1;
+        }
+    }
+    .ctg-stories .ctg-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: 1980px) {
+    .container.category-list {
+        grid-template-areas: "poems travelling stories";
+        grid-template-columns: 4fr 4fr 3fr;
+        gap: 2rem;
+    }
+
+    .ctg-poems      .ctg-container,
+    .ctg-travelling .ctg-container{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.6rem
+    }
+    .ctg-stories .ctg-container {
+        grid-template-columns: 1fr;
+    }
+    .item.button {
+        grid-column: span 1;
+    }
+}
+
+@media (min-width: 2560px) {
+    .container.category-list {
+        grid-template-columns: 5fr 5fr 3fr;
+        gap: 2rem;
+    }
+    .ctg-poems      .ctg-container,
+    .ctg-travelling .ctg-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+
+        .item.button {
+            grid-column: span 2;
+        }
+    }
+}

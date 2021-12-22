@@ -1,0 +1,35 @@
+@import 'style/colors';
+
+
+body {
+    background-color: $color7;
+    color: $color6;
+}
+
+a {
+    color: $color5;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+header {
+    background: linear-gradient($color7_op50, $color7_op50), url("/static/img/background3b_3840x200.webp");
+}
+
+.container {}
+
+.item.button a {
+}
+
+footer {
+    background: $color7l1;
+    color: $color6;
+}
+
+.item {
+    background-color: $color8;
+}
+

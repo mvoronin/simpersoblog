@@ -1,0 +1,28 @@
+@media (min-width: 576px) {
+    .container.category-detail {
+        margin: 0 2rem;
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container.category-detail {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 1980px) {
+    .container.category-detail {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 2560px) {
+    .container.category-detail {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+}

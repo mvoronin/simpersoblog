@@ -1,0 +1,21 @@
+@import 'header_base';
+@import 'content', 'content_root', 'content_category', 'content_post';
+@import 'footer_base';
+
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-size: 1.2rem;
+    min-width: 576px;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}

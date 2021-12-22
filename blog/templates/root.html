@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head-title %}{{ author.first_name }} {{ author.last_name }}{% endblock %}
+
+{% block body-container %}
+    <main class="container category-list">
+        <div class="ctg-poems">
+            <h2><a href="{{ ctg_poems.get_absolute_url }}">{{ ctg_poems.name }}</a></h2>
+            <div class="ctg-container">
+                {% for post in ctg_poems.posts.all|slice:":6" %}
+                    {% include "include/item.html" %}
+                {% endfor %}
+                {% if ctg_poems.posts.count > 6 %}
+                    <div class="item button">
+                        <h3><a class="card-title-link" href="{{ ctg_poems.get_absolute_url }}">see more</a></h3>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="ctg-travelling">
+            <h2><a href="{{ ctg_travel.get_absolute_url }}">{{ ctg_travel.name }}</a></h2>
+            <div class="ctg-container">
+                {% for post in ctg_travel.posts.all|slice:":6" %}
+                    {% include "include/item.html" %}
+                {% endfor %}
+                {% if ctg_travel.posts.count > 6 %}
+                    <div class="item button">
+                        <h3><a class="card-title-link" href="{{ ctg_travel.get_absolute_url }}">see more</a></h3>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="ctg-stories">
+            <h2><a href="{{ ctg_stories.get_absolute_url }}">{{ ctg_stories.name }}</a></h2>
+            <div class="ctg-container">
+                {% for post in ctg_stories.posts.all|slice:":6" %}
+                    {% include "include/item.html" %}
+                {% endfor %}
+                {% if ctg_stories.posts.count > 6 %}
+                    <div class="item button">
+                        <h3><a class="card-title-link" href="{{ ctg_stories.get_absolute_url }}">see more</a></h3>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block body-tail-page-js %}
+    <script src="{% static "js/card.js" %}"></script>
+{% endblock %}

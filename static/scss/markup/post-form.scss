@@ -1,0 +1,16 @@
+.container.post-update {
+  form {
+    margin: 0 auto;
+    label {
+      width: 30%;
+      float: left;
+    }
+    .input-wrapper {
+      width: 69%;
+      float: left;
+    }
+    input, textarea {
+      width: 100%;
+    }
+  }
+}

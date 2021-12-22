@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head-styles %}
+    <link rel="stylesheet" href="{% static 'css3p/redactor.css' %}">
+{% endblock %}
+
+{% block head-title %}{{ author.first_name }} {{ author.last_name }}{% endblock %}
+
+{% block body-container %}
+    <main class="container post-update">
+        <h1>{{ object.title }}</h1>
+        <a href="{% url "post-update" object.category.slug object.pk %}">Edit</a>
+
+        <div class="ctg-container">
+            <form method="post">
+                {{ form.non_field_errors }}
+                {% csrf_token %}
+                <div>
+{#                    <label class="desc" id="title1" for="Field1">Full Name</label>#}
+                    <label for="{{ form.title.id_for_label }}">Title:</label>
+                    {{ form.title.errors }}
+                    <div class="input-wrapper">
+                        {{ form.title }}
+{#                        <input id="Field1" name="Field1" type="text" class="field text fn" value="" size="8" tabindex="1">#}
+                    </div>
+                </div>
+                <div class="fieldWrapper">
+                    {{ form.description.errors }}
+                    <label for="{{ form.description.id_for_label }}">Description:</label>
+                    {{ form.description }}
+                </div>
+                <div class="fieldWrapper">
+                    {{ form.body.errors }}
+                    {{ form.body }}
+                </div>
+                <div class="fieldWrapper">
+                    {{ form.status.errors }}
+                    <label for="{{ form.status.id_for_label }}">Status:</label>
+                    {{ form.status }}
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </main>
+{% endblock %}
+
+{% block body-tail-page-js %}
+    <script src="{% static "js3p/redactor.js" %}"></script>
+    <script>$R('#post-body');</script>
+{% endblock %}
